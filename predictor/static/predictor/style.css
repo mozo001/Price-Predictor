@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+:root {
+    --bg-dark: #0f172a;
+    --card-bg: rgba(30, 41, 59, 0.7);
+    --accent: #8b5cf6; /* Vibrant Purple */
+    --accent-glow: rgba(139, 92, 246, 0.3);
+    --text-primary: #f8fafc;
+    --text-muted: #94a3b8;
+    --success: #22c55e;
+    --danger: #ef4444;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    background-image: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0f172a 100%);
+    min-height: 100vh;
+}
+
+/* Glass Card Effect */
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.title-gradient {
+    background: linear-gradient(to right, #a78bfa, #f472b6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+/* Form Controls */
+.form-control {
+    background: #0f172a !important;
+    border: 1px solid #334155 !important;
+    color: white !important;
+    border-radius: 8px;
+}
+
+.form-control:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 4px var(--accent-glow) !important;
+}
+
+/* Buttons */
+.btn-primary {
+    background: var(--accent) !important;
+    border: none !important;
+    font-weight: 600;
+    white-space: nowrap;
+    padding: 0.75rem 1.5rem;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+}
+
+.price-display {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--success);
+}
+
+.warning-icon {
+    font-size: 3rem;
+    color: #f59e0b;
+}

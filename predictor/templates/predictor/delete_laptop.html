@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm Delete</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'predictor/style.css' %}">
+</head>
+<body>
+    <div class="container py-5 d-flex justify-content-center">
+        <div class="glass-card text-center" style="max-width: 400px;">
+            <div class="warning-icon">⚠️</div>
+            <h2 class="mb-3">Confirm Delete</h2>
+            <p class="text-muted mb-4">Delete laptop with condition <b>{{ laptop.condition }}</b> and age <b>{{ laptop.age }}</b>?</p>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-danger py-2 fw-bold" style="background: var(--danger) !important; border:none;">Yes, Permanent Delete</button>
+                    <a href="{% url 'index' %}" class="btn btn-outline-light">Keep It</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
