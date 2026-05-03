@@ -2,17 +2,18 @@ from django.db import models
 
 # Create your models here.
 
+# predictor/models.py
+from django.db import models
 
 class Laptop(models.Model):
-    # 'null=True, blank=True' allows the field to be empty (triggering our imputer!)
-    condition = models.FloatField(null=True, blank=True) 
-    age = models.FloatField(null=True, blank=True)
-    
-    # We will save the prediction here after the ML model runs
-    predicted_price = models.FloatField(null=True, blank=True)
-    
-    # Keeps track of when the prediction was made
-    created_at = models.DateTimeField(auto_now_add=True)
+    company = models.CharField(max_length=200)
+    type_name = models.CharField(max_length=200)
+    ram = models.IntegerField()
+    weight = models.FloatField()
+    cpu_brand = models.CharField(max_length=200)
+    gpu_brand = models.CharField(max_length=200)
+    os = models.CharField(max_length=200)
+    predicted_price = models.IntegerField()
 
     def __str__(self):
-        return f"Laptop - Prediction: {self.predicted_price}"
+        return f"{self.company} - {self.predicted_price}"

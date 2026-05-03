@@ -13,20 +13,146 @@
         <h1 class="title-gradient text-center mb-5">Laptop Price Predictor</h1>
 
         <!-- Add Section -->
-        <div class="glass-card mb-5">
+        <div class="glass-card mb-5 p-4">
             <h4 class="mb-4 text-muted">Add New Inventory</h4>
-            <form method="POST" action="{% url 'add_laptop' %}" class="row g-3 align-items-end">
+            <form method="POST" action="{% url 'add_laptop' %}" class="row g-3">
                 {% csrf_token %}
-                <div class="col-md-5">
-                    <label class="form-label text-light">Condition (1-10)</label>
-                    <input type="number" name="condition" class="form-control" placeholder="3" required>
-                </div>
-                <div class="col-md-4">
-                    <label class="form-label text-light">Age (Years)</label>
-                    <input type="number" name="age" step="0.1" class="form-control" placeholder="2.5" required>
-                </div>
+                
+                <!-- Brand & Type -->
                 <div class="col-md-3">
-                    <button type="submit" class="btn btn-primary w-100">Predict & Save</button>
+                    <label class="form-label">Brand Name</label>
+                    <select name="company" class="form-select" required>
+                        <option value="Acer">Acer</option>
+                        <option value="Apple">Apple</option>
+                        <option value="Asus">Asus</option>
+                        <option value="Dell">Dell</option>
+                        <option value="HP">HP</option>
+                        <option value="Lenovo">Lenovo</option>
+                        <option value="MSI">MSI</option>
+                        <option value="Toshiba">Toshiba</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label">Type</label>
+                    <select name="type_name" class="form-select" required>
+                        <option value="2 in 1 Convertible">2 in 1 Convertible</option>
+                        <option value="Gaming">Gaming</option>
+                        <option value="Netbook">Netbook</option>
+                        <option value="Notebook">Notebook</option>
+                        <option value="Ultrabook">Ultrabook</option>
+                        <option value="Workstation">Workstation</option>
+                    </select>
+                </div>
+
+                <!-- CPU & GPU -->
+                <div class="col-md-3">
+                    <label class="form-label">CPU Brand</label>
+                    <select name="cpu_brand" class="form-select" required>
+                        <option value="AMD A9-Series 9420">AMD A9-Series 9420</option>
+                        <option value="Intel Celeron Dual">Intel Celeron Dual</option>
+                        <option value="Intel Core M">Intel Core M</option>
+                        <option value="Intel Core i3">Intel Core i3</option>
+                        <option value="Intel Core i5">Intel Core i5</option>
+                        <option value="Intel Core i7">Intel Core i7</option>
+                        <option value="Intel Pentium Quad">Intel Pentium Quad</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label">GPU Brand</label>
+                    <select name="gpu_brand" class="form-select" required>
+                        <option value="AMD">AMD</option>
+                        <option value="Intel">Intel</option>
+                        <option value="Nvidia">Nvidia</option>
+                    </select>
+                </div>
+
+                <!-- OS & Memory -->
+                <div class="col-md-3">
+                    <label class="form-label">Operating System</label>
+                    <select name="os" class="form-select" required>
+                        <option value="Windows 10">Windows 10</option>
+                        <option value="Windows 10 S">Windows 10 S</option>
+                        <option value="Windows 7">Windows 7</option>
+                        <option value="macOS">macOS</option>
+                        <option value="Mac OS X">Mac OS X</option>
+                        <option value="Linux">Linux</option>
+                        <option value="Chrome OS">Chrome OS</option>
+                        <option value="Android">Android</option>
+                        <option value="No OS">No OS</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label">Storage Type</label>
+                    <select name="memory_type" class="form-select" required>
+                        <option value="SSD">SSD</option>
+                        <option value="HDD">HDD</option>
+                        <option value="Flash Storage">Flash Storage</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <!-- RAM & Weight -->
+               <div class="col-md-2">
+    <label class="form-label">RAM (GB)</label>
+    <select name="ram" class="form-select" required>
+        <option value="2">2GB</option>
+        <option value="4">4GB</option>
+        <option value="6">6GB</option>
+        <option value="8">8GB</option>
+        <option value="12">12GB</option>
+        <option value="16">16GB</option>
+        <option value="24">24GB</option>
+        <option value="32">32GB</option>
+        <option value="64">64GB</option>
+    </select>
+</div>
+
+
+                <div class="col-md-2">
+                    <label class="form-label">Weight (kg)</label>
+                    <input type="number" name="weight" step="0.1" class="form-control" placeholder="e.g. 1.3" required>
+                </div>
+
+                <!-- Display Specs -->
+                <div class="col-md-2">
+                    <label class="form-label">IPS Panel</label>
+                    <select name="ips" class="form-select" required>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2">
+                    <label class="form-label">Touchscreen</label>
+                    <select name="touchscreen" class="form-select" required>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2">
+                    <label class="form-label">Screen Size</label>
+                    <input type="number" name="screen_size" step="0.1" class="form-control" placeholder="15.6" required>
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label">Resolution</label>
+                    <select name="resolution" class="form-select" required>
+                        <option value="1920x1080">1920x1080</option>
+                        <option value="1366x768">1366x768</option>
+                        <option value="1600x900">1600x900</option>
+                        <option value="2560x1600">2560x1600</option>
+                        <option value="3840x2160">3840x2160</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary w-100 py-2">Predict & Save</button>
                 </div>
             </form>
         </div>
@@ -37,9 +163,9 @@
             <div class="col-md-4 mb-4">
                 <div class="glass-card h-100 d-flex flex-column justify-content-between">
                     <div>
-                        <span class="badge bg-primary mb-2">Laptop #{{ laptop.id }}</span>
-                        <p class="mb-1 text-muted">Condition: <span class="text-white">{{ laptop.condition }}</span></p>
-                        <p class="mb-3 text-muted">Age: <span class="text-white">{{ laptop.age }} years</span></p>
+                        <span class="badge bg-primary mb-2">{{ laptop.company }} - {{ laptop.type_name }}</span>
+                        <p class="mb-1 text-muted">Specs: <span class="text-white">{{ laptop.ram }}GB, {{ laptop.cpu_brand }}</span></p>
+                        <p class="mb-3 text-muted">OS: <span class="text-white">{{ laptop.os }}</span></p>
                         <div class="price-display mb-3">${{ laptop.predicted_price }}</div>
                     </div>
                     <div class="pt-3 border-top border-secondary d-flex gap-3">

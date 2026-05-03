@@ -9,6 +9,7 @@
     --text-muted: #94a3b8;
     --success: #22c55e;
     --danger: #ef4444;
+    --warning: #f59e0b;
 }
 
 body {
@@ -23,29 +24,36 @@ body {
 .glass-card {
     background: var(--card-bg);
     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
-    padding: 2rem;
+    padding: 1.5rem;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
 }
 
+/* Page Title Styling */
 .title-gradient {
     background: linear-gradient(to right, #a78bfa, #f472b6);
-    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 800;
 }
 
-/* Form Controls */
-.form-control {
+/* Form Inputs and Select Menus */
+.form-control, .form-select {
     background: #0f172a !important;
     border: 1px solid #334155 !important;
     color: white !important;
     border-radius: 8px;
 }
 
-.form-control:focus {
+/* Fix for dark select dropdown arrows */
+.form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://w3.org' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+}
+
+.form-control:focus, .form-select:focus {
     border-color: var(--accent) !important;
     box-shadow: 0 0 0 4px var(--accent-glow) !important;
 }
@@ -55,8 +63,7 @@ body {
     background: var(--accent) !important;
     border: none !important;
     font-weight: 600;
-    white-space: nowrap;
-    padding: 0.75rem 1.5rem;
+    padding: 0.6rem 1.2rem;
 }
 
 .btn-primary:hover {
@@ -64,13 +71,44 @@ body {
     transform: translateY(-1px);
 }
 
+.btn-danger {
+    background: var(--danger) !important;
+    border: none !important;
+}
+
+.btn-outline-light {
+    border-color: #334155 !important;
+    color: var(--text-muted) !important;
+}
+
+.btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+}
+
+/* Price & Badge Styling */
 .price-display {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 800;
     color: var(--success);
 }
 
+.badge {
+    padding: 0.5em 0.8em;
+    font-weight: 500;
+}
+
+/* Icon for Delete Page */
 .warning-icon {
-    font-size: 3rem;
-    color: #f59e0b;
+    font-size: 3.5rem;
+    color: var(--warning);
+    margin-bottom: 1rem;
+}
+
+/* Form Labels */
+label.form-label, label {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
 }
