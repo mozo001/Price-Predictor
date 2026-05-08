@@ -45,7 +45,10 @@ def add_laptop(request):
         res = request.POST.get('resolution')
         X_res, Y_res = int(res.split('x')[0]), int(res.split('x')[1])
         ppi = ((X_res**2) + (Y_res**2))**0.5 / inches
-
+        if ppi > 1000:
+            print(f"DEBUG PPI:{ppi}")
+        else:
+            print(f"its right:{ppi}")
         # 4. DataFrame (Must match X order in Notebook)
         query = pd.DataFrame([[
             company, type_name, ram, weight, touchscreen, ips, ppi, 
@@ -85,8 +88,8 @@ def edit_laptop(request, pk):
         res = request.POST.get('resolution', '1920x1080')
         X_res, Y_res = int(res.split('x')[0]), int(res.split('x')[1])
         ppi = ((X_res**2) + (Y_res**2))**0.5 / inches
-
-        # Storage Logic (Crucial for the missing columns!)
+        
+        # Storage Logic 
         st_type = request.POST.get('storage_type', 'SSD')
         st_size = int(request.POST.get('storage_size', 256))
         ssd, hdd, flash = 0, 0, 0

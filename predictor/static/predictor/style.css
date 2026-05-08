@@ -112,3 +112,8 @@ label.form-label, label {
     font-weight: 600;
     margin-bottom: 0.4rem;
 }
+.text-danger { color: red; }
+.text-success { color: green; }
+.bg-gradient-beast {
+        background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    }

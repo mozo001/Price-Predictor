@@ -163,10 +163,14 @@
             <div class="col-md-4 mb-4">
                 <div class="glass-card h-100 d-flex flex-column justify-content-between">
                     <div>
+                        <!-- Add this inside your card body -->
+{% if laptop.ram > 16 or "Nvidia" in laptop.gpu_brand %}
+    <span class="badge bg-warning text-dark">Gaming Beast</span>
+{% endif %}
                         <span class="badge bg-primary mb-2">{{ laptop.company }} - {{ laptop.type_name }}</span>
                         <p class="mb-1 text-muted">Specs: <span class="text-white">{{ laptop.ram }}GB, {{ laptop.cpu_brand }}</span></p>
                         <p class="mb-3 text-muted">OS: <span class="text-white">{{ laptop.os }}</span></p>
-                        <div class="price-display mb-3">${{ laptop.predicted_price }}</div>
+                        <div class="price-display mb-3  {% if laptop.predicted_price > 100000 %}text-danger{% else %}text-success{% endif %}">${{ laptop.predicted_price }}</div>
                     </div>
                     <div class="pt-3 border-top border-secondary d-flex gap-3">
                         <a href="{% url 'edit_laptop' laptop.id %}" class="text-warning text-decoration-none small fw-bold">EDIT</a>
