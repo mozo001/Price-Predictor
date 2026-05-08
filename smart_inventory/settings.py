@@ -27,8 +27,7 @@ SECRET_KEY = 'django-insecure-3t_srqdh+$y19!8slb5v(&(^qn8$j@crcl6)r7sia_xk$f%=xk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['Price-Predictor.onrender.com', 'localhost', '127.0.0.1']
-
+ALLOWED_HOSTS = ['price-predictor-tkmk.onrender.com', 'localhost', '127.0.0.1']
 
 # Application definition
 
