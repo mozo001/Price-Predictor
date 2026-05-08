@@ -1,4 +1,4 @@
-``python?code_reference&code_event_index=5
+Demo LINK =
 # README.md content
 readme_content = """# Laptop Price Predictor
 
@@ -22,7 +22,7 @@ The project utilizes an ensemble learning approach. We transitioned from Linear 
 
 1. **Clone the repository:**
    ```bash
-   git clone <your-repository-link>
+   git clone https://github.com/mozo001/Price-Predictor.git
    cd Price-Predictor
 Create a virtual environment:
 
