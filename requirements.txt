@@ -1,6 +1,6 @@
-requirements_content = """django
+django
 pandas
 numpy
 scikit-learn
 pickle-mixin
-"""
+gunicorn
