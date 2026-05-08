@@ -1,4 +1,4 @@
-Demo LINK =  https://mozo001.github.io/Price-Predictor/
+Demo LINK =  https://price-predictor-tkmk.onrender.com
 # README.md content
 readme_content = """# Laptop Price Predictor
 
