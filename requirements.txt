@@ -1,0 +1,6 @@
+requirements_content = """django
+pandas
+numpy
+scikit-learn
+pickle-mixin
+"""
